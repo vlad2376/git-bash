@@ -1,22 +1,22 @@
 function calcAverageCalories(days) {
-    // Якщо масив порожній, повертаємо 0
+
     if (days.length === 0) {
         return 0;
     }
 
-    // Підраховуємо загальну кількість калорій
+
     let totalCalories = 0;
     for (let day of days) {
         totalCalories += day.calories;
     }
 
-    // Обчислюємо середньодобове значення калорій
+
     let averageCalories = totalCalories / days.length;
 
     return averageCalories;
 }
 
-// Перевірка функції за допомогою прикладів
+
 let weeklyCalories1 = [
     { day: "monday", calories: 3010 },
     { day: "tuesday", calories: 3200 },
