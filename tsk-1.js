@@ -1,44 +1,26 @@
-const getUserNames = (users) => {
-    return users.map(user => user.name);
-};
+// Знаходимо елементи
+const addTaskButton = document.getElementById('addTaskButton');
+const taskList = document.getElementById('taskList');
 
-const users = [
-    {
-        name: "Moore Hensley",
-        email: "moorehensley@indexia.com",
-        balance: 2811,
-    },
-    {
-        name: "Sharlene Bush",
-        email: "sharlenebush@tubesys.com",
-        balance: 3821,
-    },
-    {
-        name: "Ross Vazquez",
-        email: "rossvazquez@xinware.com",
-        balance: 3793,
-    },
-    {
-        name: "Elma Head",
-        email: "elmahead@omatom.com",
-        balance: 2278,
-    },
-    {
-        name: "Carey Barr",
-        email: "careybarr@nurali.com",
-        balance: 3951,
-    },
-    {
-        name: "Blackburn Dotson",
-        email: "blackburndotson@furnigeer.com",
-        balance: 1498,
-    },
-    {
-        name: "Sheree Anthony",
-        email: "shereeanthony@kog.com",
-        balance: 2764,
-    },
-];
+// Функція для додавання завдання
+function addTask() {
+    // Створюємо новий елемент списку
+    const newTask = document.createElement('li');
+    newTask.textContent = "Нове завдання";
 
-console.log(getUserNames(users));
-// ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+    // Створюємо кнопку для видалення
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = "Видалити завдання";
+    deleteButton.addEventListener('click', () => {
+        newTask.remove();
+    });
+
+    // Додаємо кнопку видалення до завдання
+    newTask.appendChild(deleteButton);
+
+    // Додаємо нове завдання в кінець списку
+    taskList.appendChild(newTask);
+}
+
+// Додаємо обробник подій до кнопки додавання завдання
+addTaskButton.addEventListener('click', addTask);
